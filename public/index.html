@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09090f">
+  <title>ARZZBOT — WhatsApp Automation</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">A</div><div><b>ARZZBOT</b><small>CONTROL CENTER</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#overview">▦ <span>Overview</span></a>
+    <a class="nav" href="#messages">✉ <span>Send Message</span></a>
+    <a class="nav" href="#automation">⚡ <span>Automation</span></a>
+    <a class="nav" href="#settings">⚙ <span>Settings</span></a>
+    <div class="side-bottom"><span class="pulse"></span> Dashboard ready <small>v1.0 starter</small></div>
+  </aside>
+  <main>
+    <header><div><div class="eyebrow">WHATSAPP MANAGEMENT</div><h1>Overview</h1><p>Kelola otomatisasi WhatsApp dari satu tempat.</p></div><div class="profile"><div class="avatar">A</div><span>Admin</span></div></header>
+    <section class="stats">
+      <article class="stat"><div class="stat-top"><span>Connection</span><span class="symbol">◉</span></div><strong id="connection">Checking…</strong><small id="connectionHint">Memeriksa konfigurasi API</small></article>
+      <article class="stat"><div class="stat-top"><span>API Mode</span><span class="symbol">⌁</span></div><strong>Cloud API</strong><small>WhatsApp Business Platform</small></article>
+      <article class="stat"><div class="stat-top"><span>Automation</span><span class="symbol">⚡</span></div><strong id="automationState">Standby</strong><small>Webhook-based replies</small></article>
+    </section>
+    <section class="grid">
+      <article class="panel wide" id="messages">
+        <div class="panel-head"><div><div class="eyebrow">MESSAGING</div><h2>Kirim pesan</h2></div><span class="tag">API</span></div>
+        <form id="sendForm">
+          <label>Nomor tujuan <small>Format internasional, contoh 6281234567890</small></label>
+          <input id="phone" placeholder="628xxxxxxxxxx" inputmode="numeric" required>
+          <label>Isi pesan</label>
+          <textarea id="message" rows="4" placeholder="Tulis pesan WhatsApp..." required></textarea>
+          <button type="submit" id="sendButton">Kirim pesan <span>↗</span></button>
+          <div id="sendResult" class="result" role="status"></div>
+        </form>
+      </article>
+      <article class="panel" id="automation">
+        <div class="panel-head"><div><div class="eyebrow">AUTOMATION</div><h2>Auto-reply</h2></div><span class="tag purple">BETA</span></div>
+        <p class="muted">Balasan otomatis sederhana untuk pesan masuk melalui webhook.</p>
+        <label class="toggle-row"><span><b>Aktifkan auto-reply</b><small>Balas pesan teks masuk</small></span><input id="autoReply" type="checkbox"><i></i></label>
+        <label>Pesan balasan</label>
+        <textarea id="replyText" rows="4">Halo! Terima kasih sudah menghubungi ARZZBOT. Pesan kamu sudah kami terima.</textarea>
+        <button class="secondary" id="saveAutomation">Simpan pengaturan</button>
+        <div id="automationResult" class="result"></div>
+      </article>
+      <article class="panel" id="settings">
+        <div class="panel-head"><div><div class="eyebrow">CONFIGURATION</div><h2>Setup API</h2></div><span class="tag">SETUP</span></div>
+        <p class="muted">Tambahkan token dan ID nomor WhatsApp di Cloudflare Pages → Settings → Variables and Secrets. Jangan tempel token di halaman ini.</p>
+        <div class="check-list"><div><span class="check">1</span><span><b>Meta Developer App</b><small>Aktifkan produk WhatsApp</small></span></div><div><span class="check">2</span><span><b>Cloudflare secrets</b><small>Isi access token & phone number ID</small></span></div><div><span class="check">3</span><span><b>Webhook</b><small>Daftarkan URL /api/webhook</small></span></div></div>
+        <a class="docs" href="https://developers.facebook.com/docs/whatsapp/cloud-api" target="_blank" rel="noreferrer">Dokumentasi WhatsApp Cloud API ↗</a>
+      </article>
+    </section>
+    <footer>ARZZBOT <span>•</span> Built for responsible WhatsApp automation</footer>
+  </main>
+  <script src="/app.js"></script>
+</body></html>
